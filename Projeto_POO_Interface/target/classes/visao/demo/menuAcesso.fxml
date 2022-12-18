@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visao.demo.MenuAcessoController">
+
+    <children>
+        <Label fx:id="welcomeText" layoutX="58.0" layoutY="14.0" text="POSTO DE GASOLINA" textAlignment="CENTER" textOverrun="CLIP">
+            <font>
+                <Font name="Arial Black" size="24.0" />
+            </font></Label>
+
+        <AnchorPane fx:id="apnLogin" prefHeight="600.0" prefWidth="400.0" visible="false">
+            <Label fx:id="lblCpf" layoutX="126.0" layoutY="119.0" text="CPF" />
+            <TextField fx:id="txtCpfAcesso" layoutX="126.0" layoutY="137.0" />
+            <Button fx:id="btnAcessoCadastro" layoutX="126.0" layoutY="268.0" onAction="#acessarSistema" prefHeight="25.0" prefWidth="67.0" text="ACESSAR" />
+            <Button fx:id="btnVoltarCadastro" layoutX="208.0" layoutY="268.0" mnemonicParsing="false" onAction="#voltarMenuInicio" prefHeight="25.0" prefWidth="67.0" text="VOLTAR" />
+            <Label fx:id="lblAcessoResultado" alignment="CENTER" layoutX="1.0" layoutY="395.0" prefHeight="17.0" prefWidth="400.0" textAlignment="CENTER" textFill="#ff0404" />
+        </AnchorPane>
+
+        <AnchorPane fx:id="apnOpcoes" onDragDetected="#voltarMenuAcesso" prefHeight="600.0" prefWidth="400.0" visible="false">
+
+            <Button fx:id="btnPrecos" layoutX="126.0" layoutY="138.0" mnemonicParsing="false" onAction="#verPrecos" prefHeight="25.0" prefWidth="149.0" text="PREÇOS" />
+            <Button fx:id="btnFazerPedido" layoutX="126.0" layoutY="192.0" mnemonicParsing="false" onAction="#fazerPedido" prefHeight="25.0" prefWidth="149.0" text="FAZER PEDIDO" />
+            <Button fx:id="btnVerPedidos" layoutX="126.0" layoutY="247.0" mnemonicParsing="false" onAction="#verPedidos" prefHeight="25.0" prefWidth="149.0" text="VER PEDIDOS" />
+            <Button fx:id="btnFinalizarPedidos" layoutX="126.0" layoutY="300.0" mnemonicParsing="false" onAction="#irFinalizarPedidos" prefHeight="25.0" prefWidth="149.0" text="FINALIZAR PEDIDOS" />
+            <Button fx:id="btnVoltar" layoutX="126.0" layoutY="353.0" mnemonicParsing="false" onAction="#voltarMenuAcesso" prefHeight="25.0" prefWidth="149.0" text="VOLTAR" />
+         </AnchorPane>
+
+        <AnchorPane fx:id="apnVerPrecos" prefHeight="600.0" prefWidth="400.0" visible="false">
+         <children>
+            <TableView fx:id="tbCombustivel" layoutY="150.0" prefHeight="200.0" prefWidth="400.0">
+              <columns>
+                <TableColumn fx:id="tbIdCombustivel" prefWidth="45.0" text="ID" />
+                  <TableColumn fx:id="tbNomeCombustivel" prefWidth="133.0" text="NOME" />
+                <TableColumn fx:id="tbPrecoCombustivel" prefWidth="71.0" text="PREÇO" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <Button fx:id="btnVoltarOpcoes" layoutX="174.0" layoutY="425.0" mnemonicParsing="false" onAction="#voltarOpcoes" text="VOLTAR" />
+         </children>
+        </AnchorPane>
+
+        <AnchorPane fx:id="apnVerPedidos" prefHeight="600.0" prefWidth="400.0" visible="false">
+         <children>
+            <TableView fx:id="tbPedidos" layoutX="1.0" layoutY="177.0" prefHeight="200.0" prefWidth="400.0">
+              <columns>
+                <TableColumn fx:id="tbIdPedido" prefWidth="35.0" text="ID" />
+                <TableColumn fx:id="tbCpfPedido" prefWidth="38.0" text="CPF" />
+                  <TableColumn fx:id="tbValorPedido" prefWidth="44.0" text="VALOR" />
+                  <TableColumn fx:id="tbLitrosPedido" prefWidth="51.0" text="LITROS" />
+                  <TableColumn fx:id="tbPromoPedido" prefWidth="90.0" text="PROMOCOES" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+             <Button fx:id="btnVoltarOpcoes3" layoutX="126.0" layoutY="425.0" mnemonicParsing="false" onAction="#voltarOpcoes" text="VOLTAR" />
+             <Button fx:id="btnRemoverPedido" layoutX="216.0" layoutY="425.0" mnemonicParsing="false" onAction="#removerPedido" text="REMOVER" textFill="RED" />
+             <Label fx:id="lblMensagemRemover" alignment="CENTER" layoutX="1.0" layoutY="492.0" prefHeight="17.0" prefWidth="400.0" textAlignment="CENTER" textFill="LIME" />
+         </children>
+        </AnchorPane>
+
+        <AnchorPane fx:id="apnFazerPedido" prefHeight="600.0" prefWidth="400.0" visible="false">
+            <children>
+                <TableView fx:id="tbEscolhaC" layoutX="129.0" layoutY="121.0" prefHeight="200.0" prefWidth="263.0">
+                    <columns>
+                        <TableColumn fx:id="tbIdEscolhaC" prefWidth="114.0" text="ID" />
+                        <TableColumn fx:id="tbNomeEscolhaC" prefWidth="70.0" text="NOME" />
+                        <TableColumn fx:id="tbPrecoEscolhaC" prefWidth="71.0" text="PREÇO" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+
+            <Label layoutX="3.0" layoutY="182.0" prefHeight="17.0" prefWidth="60.0" text="ID PEDIDO" />
+            <TextField fx:id="txtIdPedido" layoutX="63.0" layoutY="178.0" prefHeight="25.0" prefWidth="49.0" />
+            <Label layoutX="20.0" layoutY="233.0" text="VALOR" />
+            <TextField fx:id="txtValorPedido" layoutX="63.0" layoutY="229.0" prefHeight="25.0" prefWidth="49.0" promptText="R$" />
+            <Button fx:id="btnVoltarOpcoes2" layoutX="120.0" layoutY="425.0" mnemonicParsing="false" onAction="#voltarOpcoes" text="VOLTAR" />
+            <Button fx:id="btnConfirmarPedido" layoutX="220.0" layoutY="425.0" mnemonicParsing="false" onAction="#confirmarPedido" text="CONFIRMAR" textFill="LIME">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></Button>
+            <Label fx:id="lblMensagemPedido" alignment="CENTER" layoutX="1.0" layoutY="491.0" prefHeight="17.0" prefWidth="400.0" textAlignment="CENTER" textFill="LIME" />
+            <Label fx:id="lblPromocoes" layoutX="2.0" layoutY="338.0" text="PROMOÇÕES ATIVAS: " />
+            <Label fx:id="lblNovoValor" layoutX="1.0" layoutY="362.0" text="VALOR: " />
+                <Label fx:id="lblLitros" layoutX="1.0" layoutY="385.0" text="LITROS: " />
+            </children>
+        </AnchorPane>
+
+        <AnchorPane fx:id="apnFinalizarPedidos" prefHeight="600.0" prefWidth="400.0">
+         <children>
+            <Button fx:id="btnVoltarFinal" layoutX="125.0" layoutY="487.0" mnemonicParsing="false" onAction="#voltarOpcoes" text="VOLTAR" />
+             <Button fx:id="btnFinalizar" layoutX="215.0" layoutY="487.0" mnemonicParsing="false" onAction="#finalizarPedido" text="FINALIZAR" textFill="LIME" />
+            <TextArea fx:id="txtAreaFinal" layoutX="14.0" layoutY="216.0" prefHeight="232.0" prefWidth="374.0" />
+            <Label fx:id="lblMensagemFinal" alignment="CENTER" layoutX="1.0" layoutY="448.0" prefHeight="17.0" prefWidth="400.0" textAlignment="CENTER" textFill="RED" />
+            <ChoiceBox fx:id="cbFormaPagamento" layoutX="110.0" layoutY="79.0" prefWidth="150.0" />
+            <Label fx:id="lblNumeroCartao" layoutX="14.0" layoutY="127.0" prefHeight="17.0" prefWidth="109.0" text="Numéro do cartão:" />
+            <Label fx:id="lblCvv" layoutX="89.0" layoutY="160.0" prefHeight="17.0" prefWidth="38.0" text="CVV: " />
+            <TextField fx:id="txtNumeroCartao" layoutX="126.0" layoutY="123.0" prefHeight="25.0" prefWidth="223.0" />
+            <TextField fx:id="txtCvv" layoutX="126.0" layoutY="156.0" prefHeight="25.0" prefWidth="43.0" />
+            <ChoiceBox fx:id="cbFormaCartao" layoutX="185.0" layoutY="156.0" prefHeight="25.0" prefWidth="162.0" />
+         </children></AnchorPane>
+
+    </children>
+
+</AnchorPane>
